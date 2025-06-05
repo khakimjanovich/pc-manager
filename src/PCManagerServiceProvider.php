@@ -2,6 +2,8 @@
 
 namespace Khakimjanovich\PCManager;
 
+use Khakimjanovich\PCManager\Commands\MigrateCommand;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -15,6 +17,18 @@ class PCManagerServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('pc-manager');
+            ->name('pc-manager')
+            ->hasConsoleCommands(
+                MigrateCommand::class,
+            )->hasInstallCommand(function (InstallCommand $command) {
+                $command
+                    ->copyAndRegisterServiceProviderInApp()
+                    ->askToStarRepoOnGitHub('khakimjanovich/svgate-manager')
+                    ->startWith(function (InstallCommand $command) {
+                        if ($command->confirm('Would you like to run the migrations?', true)) {
+                            $command->call('pc-manager:migrate');
+                        }
+                    });
+            });
     }
 }
