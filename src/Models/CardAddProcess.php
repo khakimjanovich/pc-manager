@@ -23,7 +23,7 @@ use Khakimjanovich\PCManager\Observers\CardAddProcessObserver;
  * @property Carbon $created_at
  */
 #[ObservedBy(CardAddProcessObserver::class)]
-abstract class CardAddProcess extends Model
+class CardAddProcess extends Model
 {
     public $incrementing = false;
 
