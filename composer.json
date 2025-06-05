@@ -1,24 +1,25 @@
 {
-    "name": ":vendor_slug/:package_slug",
+    "name": "khakimjanovich/pc-manager",
     "description": ":package_description",
     "keywords": [
-        ":vendor_name",
+        "khakimjanovich",
         "laravel",
-        ":package_slug"
+        "pc-manager"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/khakimjanovich/pc-manager",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Yunusali Abduraxmanov",
+            "email": "yunusalikhakimjanovich@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.4",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0||^12.0"
+        "illuminate/contracts": "^10.0||^11.0||^12.0",
+        "spatie/laravel-data": "^4.15",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -35,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Khakimjanovich\\PCManager\\": "src/",
+            "Khakimjanovich\\PCManager\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "Khakimjanovich\\PCManager\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +64,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Khakimjanovich\\PCManager\\PCManagerServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "PCManager": "Khakimjanovich\\PCManager\\Facades\\PCManager"
             }
         }
     },
