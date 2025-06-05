@@ -12,7 +12,7 @@ return new class extends Migration
     {
         Schema::create('pc_manager_card_add_processes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->text('pan');
+            $table->text('encrypted_pan');
             $table->string('expiry_date');
             $table->string('phone_number');
             $table->string('bin');
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('is_main');
             $table->string('local_owner_id');
             $table->string('order');
-            $table->text('confirmer');
+            $table->text('encrypted_confirmer');
             $table->timestamps();
         });
     }
