@@ -16,7 +16,7 @@ class InitPayload extends Data
         public CardAddSMSConfigLanguages $language,
         public string $phone_number,
         #[Rule(new ValidExpiry)]
-        public string $expiry,
+        public string $expiry_date,
         public string $name,
         public string $local_owner_id,
         public ?int $order = null,
