@@ -43,18 +43,16 @@ abstract class Card extends Model
 
     protected $hidden = ['encrypted_pan', 'updated_at', 'card_token'];
 
-    public function create(CreateData $data): self
+    public static function create(CreateData $data): self
     {
         return static::query()->firstOrCreate(['id' => hash('sha256', $data->pan)], [
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date,
             'phone_number' => $data->phone_number, 'bin' => $data->bin, 'card_token' => $data->token,
             'name_on_card' => $data->name_on_card, 'name' => $data->name, 'order' => $data->order,
-            'is_main' => $data->is_main, $data->local_owner_id, 'processing_center' => $this->getProcessingCenter(),
+            'is_main' => $data->is_main, $data->local_owner_id, 'processing_center' => $data->processing_centre,
         ]);
     }
-
-    abstract public function getProcessingCenter(): string;
-
+    
     public function getPanAttribute(): string
     {
         return Crypt::decryptString($this->attributes['encrypted_pan']);
