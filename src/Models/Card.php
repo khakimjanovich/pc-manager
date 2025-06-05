@@ -20,7 +20,7 @@ use Khakimjanovich\PCManager\Observers\CardObserver;
  * @property string $name_on_card
  * @property string $name
  * @property int $order
- * @property boolean $is_main
+ * @property bool $is_main
  * @property string $local_owner_id
  * @property string $processing_center
  */
@@ -28,12 +28,14 @@ use Khakimjanovich\PCManager\Observers\CardObserver;
 abstract class Card extends Model
 {
     public $incrementing = false;
+
     protected $table = 'pc_manager_cards';
+
     protected $keyType = 'string';
 
     protected $fillable = [
         'id', 'encrypted_pan', 'expiry_date', 'phone_number', 'bin', 'card_token', 'name_on_card', 'name', 'order',
-        'is_main', 'local_owner_id', 'processing_center'
+        'is_main', 'local_owner_id', 'processing_center',
     ];
 
     protected $appends = ['pan'];
@@ -46,7 +48,7 @@ abstract class Card extends Model
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date,
             'phone_number' => $data->phone_number, 'bin' => $data->bin, 'card_token' => $data->token,
             'name_on_card' => $data->name_on_card, 'name' => $data->name, 'order' => $data->order,
-            'is_main' => $data->is_main, $data->local_owner_id, 'processing_center' => $this->getProcessingCenter()
+            'is_main' => $data->is_main, $data->local_owner_id, 'processing_center' => $this->getProcessingCenter(),
         ]);
     }
 
