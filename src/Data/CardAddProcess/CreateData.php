@@ -15,6 +15,6 @@ class CreateData extends Data
         public bool $is_main,
         public string $local_owner_id,
         public int $order,
-        public bool $confirmer
+        public string $confirmer
     ) {}
 }
