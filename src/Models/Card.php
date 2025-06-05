@@ -52,7 +52,7 @@ abstract class Card extends Model
             'is_main' => $data->is_main, $data->local_owner_id, 'processing_center' => $data->processing_centre,
         ]);
     }
-    
+
     public function getPanAttribute(): string
     {
         return Crypt::decryptString($this->attributes['encrypted_pan']);
