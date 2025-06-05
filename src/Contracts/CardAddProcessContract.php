@@ -12,5 +12,5 @@ interface CardAddProcessContract
 {
     public function init(InitPayload $data): InitResource;
 
-    public function verify(VerifyPayload $data, Card $card): VerifyResource;
+    public function verify(VerifyPayload $data): VerifyResource;
 }
