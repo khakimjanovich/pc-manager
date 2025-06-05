@@ -16,7 +16,5 @@ class CreateData extends Data
         public string $local_owner_id,
         public int $order,
         public bool $confirmer
-    )
-    {
-    }
+    ) {}
 }

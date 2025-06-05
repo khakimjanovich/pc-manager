@@ -26,11 +26,14 @@ use Khakimjanovich\PCManager\Observers\CardAddProcessObserver;
 abstract class CardAddProcess extends Model
 {
     public $incrementing = false;
+
     protected $table = 'pc_manager_card_add_processes';
+
     protected $keyType = 'string';
+
     protected $fillable = [
         'encrypted_pan', 'expiry_date', 'phone_number', 'bin', 'name', 'is_main', 'local_owner_id', 'order',
-        'encrypted_confirmer'
+        'encrypted_confirmer',
     ];
 
     protected $appends = ['pan', 'confirmer'];
@@ -42,7 +45,7 @@ abstract class CardAddProcess extends Model
         return static::query()->create([
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date, 'phone_number' => $data->phone_number,
             'bin' => $data->bin, 'name' => $data->name, 'is_main' => $data->is_main, 'local_owner_id' => $data->local_owner_id,
-            'order' => $data->order, 'encrypted_confirmer' => Crypt::encryptString($data->confirmer)
+            'order' => $data->order, 'encrypted_confirmer' => Crypt::encryptString($data->confirmer),
         ]);
     }
 
