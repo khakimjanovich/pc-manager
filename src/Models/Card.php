@@ -49,7 +49,7 @@ abstract class Card extends Model
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date,
             'phone_number' => $data->phone_number, 'bin' => $data->bin, 'card_token' => $data->token,
             'name_on_card' => $data->name_on_card, 'name' => $data->name, 'order' => $data->order,
-            'is_main' => $data->is_main, $data->local_owner_id, 'processing_centre' => $data->processing_centre,
+            'is_main' => $data->is_main, 'local_owner_id' => $data->local_owner_id, 'processing_centre' => $data->processing_centre,
         ]);
     }
 

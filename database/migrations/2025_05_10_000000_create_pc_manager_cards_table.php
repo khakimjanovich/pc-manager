@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('order');
             $table->boolean('is_main')->default(false);
             $table->string('processing_centre')->index();
+            $table->string('local_owner_id')->index();
             $table->timestamps();
         });
     }
