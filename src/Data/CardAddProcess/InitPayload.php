@@ -3,8 +3,8 @@
 namespace Khakimjanovich\PCManager\Data\CardAddProcess;
 
 use Khakimjanovich\PCManager\Enums\CardAddSMSConfigLanguages;
-use Khakimjanovich\PCManager\Rules\ValidPAN;
 use Khakimjanovich\PCManager\Rules\ValidExpiry;
+use Khakimjanovich\PCManager\Rules\ValidPAN;
 use Spatie\LaravelData\Attributes\Validation\Rule;
 use Spatie\LaravelData\Data;
 

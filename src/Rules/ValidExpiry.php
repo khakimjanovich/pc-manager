@@ -9,7 +9,7 @@ class ValidExpiry implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (!preg_match('/^\d{4}$/', $value)) {
+        if (! preg_match('/^\d{4}$/', $value)) {
             $fail('The :attribute must in YYMM format.');
         }
 
@@ -17,7 +17,7 @@ class ValidExpiry implements ValidationRule
 
         $is_good_month = $month >= 1 && $month <= 12;
 
-        if (!$is_good_month) {
+        if (! $is_good_month) {
             $fail('The :attribute month must be between 1 and 12.');
         }
     }
