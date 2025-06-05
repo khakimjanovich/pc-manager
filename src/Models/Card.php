@@ -23,7 +23,7 @@ use Khakimjanovich\PCManager\Observers\CardObserver;
  * @property int $order
  * @property bool $is_main
  * @property string $local_owner_id
- * @property string $processing_center
+ * @property string $processing_centre
  */
 #[ObservedBy(CardObserver::class)]
 abstract class Card extends Model
@@ -36,7 +36,7 @@ abstract class Card extends Model
 
     protected $fillable = [
         'id', 'encrypted_pan', 'expiry_date', 'phone_number', 'bin', 'card_token', 'name_on_card', 'name', 'order',
-        'is_main', 'local_owner_id', 'processing_center',
+        'is_main', 'local_owner_id', 'processing_centre',
     ];
 
     protected $appends = ['pan'];
@@ -49,7 +49,7 @@ abstract class Card extends Model
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date,
             'phone_number' => $data->phone_number, 'bin' => $data->bin, 'card_token' => $data->token,
             'name_on_card' => $data->name_on_card, 'name' => $data->name, 'order' => $data->order,
-            'is_main' => $data->is_main, $data->local_owner_id, 'processing_center' => $data->processing_centre,
+            'is_main' => $data->is_main, $data->local_owner_id, 'processing_centre' => $data->processing_centre,
         ]);
     }
 

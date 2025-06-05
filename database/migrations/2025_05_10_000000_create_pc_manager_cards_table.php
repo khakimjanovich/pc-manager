@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger('order');
             $table->boolean('is_main')->default(false);
-            $table->string('processing_centre');
+            $table->string('processing_centre')->index();
             $table->timestamps();
         });
     }
