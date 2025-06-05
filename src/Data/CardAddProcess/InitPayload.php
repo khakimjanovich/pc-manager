@@ -17,5 +17,9 @@ class InitPayload extends Data
         public string $phone_number,
         #[Rule(new ValidExpiry)]
         public string $expiry,
+        public string $name,
+        public string $local_owner_id,
+        public ?int $order = null,
+        public bool $is_main = false,
     ) {}
 }
