@@ -16,6 +16,7 @@ use Khakimjanovich\PCManager\Observers\CardObserver;
  * @property string $expiry_date
  * @property string $phone_number
  * @property string $bin
+ * @property string $pan
  * @property string $card_token
  * @property string $name_on_card
  * @property string $name
