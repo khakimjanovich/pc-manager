@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Khakimjanovich\PCManager\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Model;
@@ -26,6 +27,7 @@ use Khakimjanovich\PCManager\Scopes\ProcessingCentreScope;
  * @property bool $is_main
  * @property string $local_owner_id
  * @property string $processing_centre
+ * @property Carbon $created_at
  */
 #[ScopedBy(ProcessingCentreScope::class)]
 #[ObservedBy(CardObserver::class)]
@@ -39,7 +41,7 @@ abstract class Card extends Model
 
     protected $fillable = [
         'id', 'encrypted_pan', 'expiry_date', 'phone_number', 'bin', 'card_token', 'name_on_card', 'name', 'order',
-        'is_main', 'local_owner_id',
+        'is_main', 'local_owner_id', 'background_image',
     ];
 
     protected $appends = ['pan'];
@@ -53,6 +55,7 @@ abstract class Card extends Model
             'phone_number' => $data->phone_number, 'bin' => $data->bin, 'card_token' => $data->token,
             'name_on_card' => $data->name_on_card, 'name' => $data->name, 'order' => $data->order,
             'is_main' => $data->is_main, 'local_owner_id' => $data->local_owner_id,
+            'background_image' => $data->background_image,
         ]);
     }
 

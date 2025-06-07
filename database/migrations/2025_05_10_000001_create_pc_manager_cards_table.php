@@ -6,8 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('pc_manager_cards', function (Blueprint $table) {
@@ -23,6 +22,7 @@ return new class extends Migration
             $table->boolean('is_main')->default(false);
             $table->string('processing_centre')->index();
             $table->string('local_owner_id')->index();
+            $table->string('background_image')->nullable();
             $table->timestamps();
         });
     }

@@ -24,5 +24,6 @@ class CreateData extends Data
         public ?int $order = null,
         public bool $is_main = false,
         public ?string $local_owner_id = null,
+        public ?string $background_image = null,
     ) {}
 }
