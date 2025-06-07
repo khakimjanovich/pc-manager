@@ -13,8 +13,5 @@ class InfoResource extends Data
         public DataCollection $success,
         #[DataCollectionOf(InfoErrorData::class)]
         public DataCollection $error,
-    )
-    {
-    }
-
+    ) {}
 }
