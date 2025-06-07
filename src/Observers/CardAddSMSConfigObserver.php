@@ -36,7 +36,7 @@ class CardAddSMSConfigObserver
             throw new PCManagerException(ExceptionCodes::SMS_CONFIG_INVALID_LANGUAGE);
         }
 
-        if ($model->isDirty('language') && CardAddSMSConfig::query()->where('processing_centre', $model->getProcessingCentre())->where('language', $model->language)->whereNot('id', $model->id)->first()) {
+        if ($model->isDirty('language') && DB::table($model->getTable())->where('processing_centre', $model->getProcessingCentre())->where('language', $model->language)->whereNot('id', $model->id)->first()) {
             throw new PCManagerException(ExceptionCodes::SMS_CONFIG_ONE_CONFIG_FOR_ONE_LANGUAGE_CAN_BE_CREATED);
         }
     }
