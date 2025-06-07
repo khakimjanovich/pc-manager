@@ -6,5 +6,8 @@ use Khakimjanovich\PCManager\Models\Card;
 
 class CardObserver
 {
-    public function creating(Card $card) {}
+    public function creating(Card $card): void
+    {
+        $card->processing_centre = $card->getProcessingCentre();
+    }
 }

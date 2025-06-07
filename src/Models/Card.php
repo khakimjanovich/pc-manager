@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Khakimjanovich\PCManager\Models;
 
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Crypt;
 use Khakimjanovich\PCManager\Data\Card\CreateData;
 use Khakimjanovich\PCManager\Observers\CardObserver;
+use Khakimjanovich\PCManager\Scopes\ProcessingCentreScope;
 
 /**
  * @property string $id
@@ -25,6 +27,7 @@ use Khakimjanovich\PCManager\Observers\CardObserver;
  * @property string $local_owner_id
  * @property string $processing_centre
  */
+#[ScopedBy(ProcessingCentreScope::class)]
 #[ObservedBy(CardObserver::class)]
 abstract class Card extends Model
 {
@@ -36,7 +39,7 @@ abstract class Card extends Model
 
     protected $fillable = [
         'id', 'encrypted_pan', 'expiry_date', 'phone_number', 'bin', 'card_token', 'name_on_card', 'name', 'order',
-        'is_main', 'local_owner_id', 'processing_centre',
+        'is_main', 'local_owner_id',
     ];
 
     protected $appends = ['pan'];
@@ -49,7 +52,7 @@ abstract class Card extends Model
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date,
             'phone_number' => $data->phone_number, 'bin' => $data->bin, 'card_token' => $data->token,
             'name_on_card' => $data->name_on_card, 'name' => $data->name, 'order' => $data->order,
-            'is_main' => $data->is_main, 'local_owner_id' => $data->local_owner_id, 'processing_centre' => $data->processing_centre,
+            'is_main' => $data->is_main, 'local_owner_id' => $data->local_owner_id,
         ]);
     }
 
@@ -57,6 +60,8 @@ abstract class Card extends Model
     {
         return Crypt::decryptString($this->attributes['encrypted_pan']);
     }
+
+    abstract public function getProcessingCentre(): string;
 
     abstract public function getDebitRow(): string;
 }
