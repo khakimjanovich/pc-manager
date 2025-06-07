@@ -8,7 +8,5 @@ class ListResource extends Data
 {
     public function __construct(
         public CardData $card,
-    )
-    {
-    }
+    ) {}
 }

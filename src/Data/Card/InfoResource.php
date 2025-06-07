@@ -8,7 +8,5 @@ class InfoResource extends Data
 {
     public function __construct(
         public InfoSuccessData|InfoErrorData $data
-    )
-    {
-    }
+    ) {}
 }

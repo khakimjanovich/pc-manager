@@ -8,7 +8,5 @@ class InfoSuccessData
         public string $id,
         public string $balance,
         public string $state,
-    )
-    {
-    }
+    ) {}
 }
