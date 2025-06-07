@@ -7,6 +7,11 @@ use Spatie\LaravelData\Data;
 class InfoResource extends Data
 {
     public function __construct(
-        public InfoSuccessData|InfoErrorData $data
-    ) {}
+        public string      $id,
+        public string|null $balance,
+        public string|null $state,
+        public string|null $message,
+    )
+    {
+    }
 }
