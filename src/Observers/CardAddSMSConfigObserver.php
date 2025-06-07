@@ -2,6 +2,7 @@
 
 namespace Khakimjanovich\PCManager\Observers;
 
+use Illuminate\Support\Facades\DB;
 use Khakimjanovich\PCManager\Enums\CardAddSMSConfigLanguages;
 use Khakimjanovich\PCManager\Enums\ExceptionCodes;
 use Khakimjanovich\PCManager\Exceptions\PCManagerException;
@@ -18,7 +19,7 @@ class CardAddSMSConfigObserver
             throw new PCManagerException(ExceptionCodes::SMS_CONFIG_INVALID_LANGUAGE);
         }
 
-        if (CardAddSMSConfig::query()->where('processing_centre', $model->getProcessingCentre())->where('language', $model->language)->exists()) {
+        if (DB::table($model->getTable())->where('processing_centre', $model->getProcessingCentre())->where('language', $model->language)->exists()) {
             throw new PCManagerException(ExceptionCodes::SMS_CONFIG_HAS_ALREADY_BEEN_CREATED);
         }
 
