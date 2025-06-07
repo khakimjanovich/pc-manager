@@ -14,7 +14,7 @@ class CardAddSMSConfigObserver
      */
     public function creating(CardAddSMSConfig $model): void
     {
-        if (!in_array($model->language->value, CardAddSMSConfigLanguages::toArray())) {
+        if (! in_array($model->language->value, CardAddSMSConfigLanguages::toArray())) {
             throw new PCManagerException(ExceptionCodes::SMS_CONFIG_INVALID_LANGUAGE);
         }
 
@@ -31,7 +31,7 @@ class CardAddSMSConfigObserver
      */
     public function updating(CardAddSMSConfig $model): void
     {
-        if (!in_array($model->language->value, CardAddSMSConfigLanguages::toArray())) {
+        if (! in_array($model->language->value, CardAddSMSConfigLanguages::toArray())) {
             throw new PCManagerException(ExceptionCodes::SMS_CONFIG_INVALID_LANGUAGE);
         }
 
