@@ -27,6 +27,7 @@ use Khakimjanovich\PCManager\Scopes\ProcessingCentreScope;
  * @property bool $is_main
  * @property string $local_owner_id
  * @property string $processing_centre
+ * @property string $background_image
  * @property Carbon $created_at
  */
 #[ScopedBy(ProcessingCentreScope::class)]
