@@ -32,6 +32,7 @@ class MigrateCommand extends Command
         $tables_to_drop = [
             'pc_manager_card_add_processes',
             'pc_manager_cards',
+            'pc_manager_card_add_sms_configs',
         ];
 
         $dropped_tables = '';
