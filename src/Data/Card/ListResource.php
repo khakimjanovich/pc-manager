@@ -2,15 +2,27 @@
 
 namespace Khakimjanovich\PCManager\Data\Card;
 
-use Spatie\LaravelData\Attributes\DataCollectionOf;
+use Carbon\Carbon;
 use Spatie\LaravelData\Data;
-use Spatie\LaravelData\DataCollection;
 
 class ListResource extends Data
 {
     public function __construct(
-        /** @var array<int, CardData> $card */
-        #[DataCollectionOf(CardData::class)]
-        public DataCollection $card,
-    ) {}
+        public string $id,
+        public string $pan,
+        public string $expiry_date,
+        public string $phone_number,
+        public string $name_on_card,
+        public string $name,
+        public int    $order,
+        public bool   $is_main,
+        public string $processing_centre,
+        public string $local_owner_id,
+        public Carbon $created_at,
+        public string $bank_name,
+        public string $bank_image,
+        public string $background_image,
+    )
+    {
+    }
 }

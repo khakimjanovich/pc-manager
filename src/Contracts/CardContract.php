@@ -2,12 +2,15 @@
 
 namespace Khakimjanovich\PCManager\Contracts;
 
-use Khakimjanovich\PCManager\Data\Card\InfoResource;
+use Khakimjanovich\PCManager\Data\Card\InfoErrorResource;
+use Khakimjanovich\PCManager\Data\Card\InfoSuccessResource;
 use Khakimjanovich\PCManager\Data\Card\ListResource;
 
 interface CardContract
 {
-    public function list(string $local_owner_id): ListResource;
+    /** @returns array<int, ListResource> */
+    public function list(string $local_owner_id): array;
 
-    public function info(string $local_owner_id): InfoResource;
+    /** @returns array<int, InfoSuccessResource|InfoErrorResource> */
+    public function info(string $local_owner_id): array;
 }
