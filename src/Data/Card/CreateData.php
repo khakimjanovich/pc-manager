@@ -14,7 +14,7 @@ class CreateData extends Data
     public function __construct(
         #[Rule(new ValidPAN)]
         public string $pan,
-        #[Rule(new ValidExpiry())]
+        #[Rule(new ValidExpiry)]
         public string $expiry_date,
         public string $phone_number,
         public string $bin,

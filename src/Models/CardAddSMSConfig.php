@@ -24,7 +24,8 @@ use Khakimjanovich\PCManager\Scopes\ProcessingCentreScope;
 abstract class CardAddSMSConfig extends Model
 {
     protected $table = 'pc_manager_card_add_sms_configs';
-    protected $fillable = ['ussd', 'template_id', 'service_name', 'hash', 'language',];
+
+    protected $fillable = ['ussd', 'template_id', 'service_name', 'hash', 'language'];
 
     protected $casts = [
         'language' => CardAddSMSConfigLanguages::class,
