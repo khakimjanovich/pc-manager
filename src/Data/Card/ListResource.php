@@ -12,7 +12,5 @@ class ListResource extends Data
         /** @var array<int, CardData> $card */
         #[DataCollectionOf(CardData::class)]
         public DataCollection $card,
-    )
-    {
-    }
+    ) {}
 }
