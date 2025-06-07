@@ -9,7 +9,6 @@ use Spatie\LaravelData\DataCollection;
 class InfoResource extends Data
 {
     public function __construct(
-
         #[DataCollectionOf(InfoSuccessData::class)]
         public DataCollection $success,
         #[DataCollectionOf(InfoErrorData::class)]
@@ -17,4 +16,5 @@ class InfoResource extends Data
     )
     {
     }
+
 }
