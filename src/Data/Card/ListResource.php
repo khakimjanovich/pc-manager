@@ -14,15 +14,13 @@ class ListResource extends Data
         public string $phone_number,
         public string $name_on_card,
         public string $name,
-        public int    $order,
-        public bool   $is_main,
+        public int $order,
+        public bool $is_main,
         public string $processing_centre,
         public string $local_owner_id,
         public Carbon $created_at,
         public string $bank_name,
         public string $bank_image,
         public string $background_image,
-    )
-    {
-    }
+    ) {}
 }
