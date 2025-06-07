@@ -2,15 +2,18 @@
 
 namespace Khakimjanovich\PCManager\Data\Card;
 
+use Spatie\LaravelData\Attributes\DataCollectionOf;
 use Spatie\LaravelData\Data;
+use Spatie\LaravelData\DataCollection;
 
 class InfoResource extends Data
 {
     public function __construct(
-        public string      $id,
-        public string|null $balance,
-        public string|null $state,
-        public string|null $message,
+
+        #[DataCollectionOf(InfoSuccessData::class)]
+        public DataCollection $success,
+        #[DataCollectionOf(InfoErrorData::class)]
+        public DataCollection $error,
     )
     {
     }
