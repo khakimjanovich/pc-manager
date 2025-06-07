@@ -2,7 +2,9 @@
 
 namespace Khakimjanovich\PCManager\Data\Card;
 
-class InfoSuccessData
+use Spatie\LaravelData\Data;
+
+class InfoSuccessData extends Data
 {
     public function __construct(
         public string $id,
