@@ -15,7 +15,7 @@ return new class extends Migration
             $table->text('encrypted_pan');
             $table->string('expiry_date');
             $table->string('phone_number')->index();
-            $table->string('bin')->index();
+            $table->string('bin_code')->index();
             $table->string('card_token');
             $table->string('name_on_card');
             $table->string('name');

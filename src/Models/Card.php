@@ -18,7 +18,7 @@ use Khakimjanovich\PCManager\Scopes\ProcessingCentreScope;
  * @property string $encrypted_pan
  * @property string $expiry_date
  * @property string $phone_number
- * @property string $bin
+ * @property string $bin_code
  * @property string $pan
  * @property string $card_token
  * @property string $name_on_card
@@ -41,7 +41,7 @@ abstract class Card extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'id', 'encrypted_pan', 'expiry_date', 'phone_number', 'bin', 'card_token', 'name_on_card', 'name', 'order',
+        'id', 'encrypted_pan', 'expiry_date', 'phone_number', 'bin_code', 'card_token', 'name_on_card', 'name', 'order',
         'is_main', 'local_owner_id', 'background_image',
     ];
 
@@ -53,7 +53,7 @@ abstract class Card extends Model
     {
         return static::query()->firstOrCreate(['id' => hash('sha256', $data->pan)], [
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date,
-            'phone_number' => $data->phone_number, 'bin' => $data->bin, 'card_token' => $data->token,
+            'phone_number' => $data->phone_number, 'bin_code' => $data->bin, 'card_token' => $data->token,
             'name_on_card' => $data->name_on_card, 'name' => $data->name, 'order' => $data->order,
             'is_main' => $data->is_main, 'local_owner_id' => $data->local_owner_id,
             'background_image' => $data->background_image,
