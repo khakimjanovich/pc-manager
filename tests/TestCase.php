@@ -3,8 +3,8 @@
 namespace Khakimjanovich\PCManager\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Khakimjanovich\PCManager\PCManagerServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
