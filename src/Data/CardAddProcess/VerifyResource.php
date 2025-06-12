@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Data\CardAddProcess;
 
 use Spatie\LaravelData\Data;
 
-class VerifyResource extends Data
+final class VerifyResource extends Data
 {
     public function __construct(
         public string $id,

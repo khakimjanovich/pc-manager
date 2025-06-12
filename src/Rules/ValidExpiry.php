@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class ValidExpiry implements ValidationRule
+final class ValidExpiry implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
@@ -13,7 +15,7 @@ class ValidExpiry implements ValidationRule
             $fail('The :attribute must in YYMM format.');
         }
 
-        $month = intval(substr($value, 2, 2));
+        $month = (int) (mb_substr($value, 2, 2));
 
         $is_good_month = $month >= 1 && $month <= 12;
 

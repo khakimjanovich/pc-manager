@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Data\CardAddProcess;
 
 use Khakimjanovich\PCManager\Enums\CardAddSMSConfigLanguages;
@@ -8,7 +10,7 @@ use Khakimjanovich\PCManager\Rules\ValidPAN;
 use Spatie\LaravelData\Attributes\Validation\Rule;
 use Spatie\LaravelData\Data;
 
-class InitPayload extends Data
+final class InitPayload extends Data
 {
     public function __construct(
         #[Rule(new ValidPAN)]

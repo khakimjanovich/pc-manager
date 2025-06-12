@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Models;
 
 use Carbon\Carbon;
@@ -23,7 +25,7 @@ use Khakimjanovich\PCManager\Observers\CardAddProcessObserver;
  * @property Carbon $created_at
  */
 #[ObservedBy(CardAddProcessObserver::class)]
-class CardAddProcess extends Model
+final class CardAddProcess extends Model
 {
     public $incrementing = false;
 
@@ -42,7 +44,7 @@ class CardAddProcess extends Model
 
     public static function create(CreateData $data): static
     {
-        return static::query()->create([
+        return self::query()->create([
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date, 'phone_number' => $data->phone_number,
             'bin' => $data->bin, 'name' => $data->name, 'is_main' => $data->is_main, 'local_owner_id' => $data->local_owner_id,
             'order' => $data->order, 'encrypted_confirmer' => Crypt::encryptString($data->confirmer),

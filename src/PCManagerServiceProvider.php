@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager;
 
 use Khakimjanovich\PCManager\Commands\MigrateCommand;
@@ -7,7 +9,7 @@ use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class PCManagerServiceProvider extends PackageServiceProvider
+final class PCManagerServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

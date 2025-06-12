@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Observers;
 
 use Illuminate\Support\Facades\DB;
@@ -8,7 +10,7 @@ use Khakimjanovich\PCManager\Enums\ExceptionCodes;
 use Khakimjanovich\PCManager\Exceptions\PCManagerException;
 use Khakimjanovich\PCManager\Models\CardAddSMSConfig;
 
-class CardAddSMSConfigObserver
+final class CardAddSMSConfigObserver
 {
     /**
      * @throws PCManagerException

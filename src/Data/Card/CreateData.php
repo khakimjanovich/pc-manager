@@ -9,7 +9,7 @@ use Khakimjanovich\PCManager\Rules\ValidPAN;
 use Spatie\LaravelData\Attributes\Validation\Rule;
 use Spatie\LaravelData\Data;
 
-class CreateData extends Data
+final class CreateData extends Data
 {
     public function __construct(
         #[Rule(new ValidPAN)]

@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Data\CardAddProcess;
 
 use Spatie\LaravelData\Data;
 
-class CreateData extends Data
+final class CreateData extends Data
 {
     public function __construct(
         public string $pan,

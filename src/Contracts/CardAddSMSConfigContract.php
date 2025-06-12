@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Contracts;
 
 use Illuminate\Database\Eloquent\Collection;

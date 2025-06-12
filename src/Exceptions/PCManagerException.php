@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Exceptions;
 
 use Exception;
 use Khakimjanovich\PCManager\Enums\ExceptionCodes;
 use Throwable;
 
-class PCManagerException extends Exception
+final class PCManagerException extends Exception
 {
     public ExceptionCodes $exceptionCode;
 

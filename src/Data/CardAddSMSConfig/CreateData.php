@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Data\CardAddSMSConfig;
 
 use Khakimjanovich\PCManager\Enums\CardAddSMSConfigLanguages;
@@ -7,7 +9,7 @@ use Spatie\LaravelData\Attributes\WithCast;
 use Spatie\LaravelData\Casts\EnumCast;
 use Spatie\LaravelData\Data;
 
-class CreateData extends Data
+final class CreateData extends Data
 {
     public function __construct(
         #[WithCast(EnumCast::class, type: CardAddSMSConfigLanguages::class)]

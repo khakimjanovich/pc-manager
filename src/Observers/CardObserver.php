@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Observers;
 
 use Khakimjanovich\PCManager\Models\Card;
 
-class CardObserver
+final class CardObserver
 {
     public function creating(Card $card): void
     {

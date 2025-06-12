@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Models;
 
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
@@ -31,13 +33,13 @@ abstract class CardAddSMSConfig extends Model
         'language' => CardAddSMSConfigLanguages::class,
     ];
 
-    public static function create(CreateData $data): static
+    abstract public function getProcessingCentre(): string;
+
+    final public static function create(CreateData $data): static
     {
         return static::query()->create([
             'ussd' => $data->ussd, 'language' => $data->language->value, 'template_id' => $data->template_id,
             'service_name' => $data->service_name, 'hash' => $data->hash,
         ]);
     }
-
-    abstract public function getProcessingCentre(): string;
 }

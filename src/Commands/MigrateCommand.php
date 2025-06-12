@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Commands;
 
 use Illuminate\Console\Command;
@@ -9,7 +11,7 @@ use Illuminate\Support\Facades\Schema;
 use Symfony\Component\Console\Attribute\AsCommand;
 
 #[AsCommand('pc-manager:migrate', 'Migrates the pc manger migrations to database')]
-class MigrateCommand extends Command
+final class MigrateCommand extends Command
 {
     public function handle(): int
     {

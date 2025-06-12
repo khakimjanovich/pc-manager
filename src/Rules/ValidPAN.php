@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class ValidPAN implements ValidationRule
+final class ValidPAN implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
@@ -13,7 +15,7 @@ class ValidPAN implements ValidationRule
             $fail('The :attribute must be numeric.');
         }
 
-        if (strlen($value) !== 16) {
+        if (mb_strlen($value) !== 16) {
             $fail('The :attribute must be exactly 16 digits.');
         }
 
@@ -27,7 +29,7 @@ class ValidPAN implements ValidationRule
         $sum = 0;
         $alt = false;
 
-        for ($i = strlen($number) - 1; $i >= 0; $i--) {
+        for ($i = mb_strlen($number) - 1; $i >= 0; $i--) {
             $n = (int) $number[$i];
 
             if ($alt) {
