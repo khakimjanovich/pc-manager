@@ -1,6 +1,6 @@
 {
     "name": "khakimjanovich/pc-manager",
-    "description": ":package_description",
+    "description": "Processing Centre Manager package for laravel and mobile banking systems",
     "keywords": [
         "khakimjanovich",
         "laravel",

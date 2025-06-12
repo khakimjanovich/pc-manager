@@ -2,9 +2,11 @@
 
 namespace Khakimjanovich\PCManager;
 
+use Khakimjanovich\PCManager\Contracts\CardAddProcessContract;
+
 class PCManager
 {
-    // A Processing center should have to have a card add process
-    // It inits and confirms
+    public ?CardAddProcessContract $card_add_process = null;
+
 
 }

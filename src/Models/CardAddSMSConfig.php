@@ -31,7 +31,7 @@ abstract class CardAddSMSConfig extends Model
         'language' => CardAddSMSConfigLanguages::class,
     ];
 
-    public static function create(CreateData $data): self
+    public static function create(CreateData $data): static
     {
         return static::query()->create([
             'ussd' => $data->ussd, 'language' => $data->language->value, 'template_id' => $data->template_id,
