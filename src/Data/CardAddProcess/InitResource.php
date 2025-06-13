@@ -11,6 +11,6 @@ final class InitResource extends Data
     public function __construct(
         public string $id,
         public string $phone_number,
-        public string|null $code
+        public ?string $code
     ) {}
 }
