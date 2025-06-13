@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace Khakimjanovich\PCManager\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Crypt;
 use Khakimjanovich\PCManager\Data\CardAddProcess\CreateData;
-use Khakimjanovich\PCManager\Observers\CardAddProcessObserver;
 
 /**
  * @property string $id
@@ -24,8 +22,7 @@ use Khakimjanovich\PCManager\Observers\CardAddProcessObserver;
  * @property string $confirmer
  * @property Carbon $created_at
  */
-#[ObservedBy(CardAddProcessObserver::class)]
-final class CardAddProcess extends Model
+abstract class CardAddProcess extends Model
 {
     public $incrementing = false;
 
@@ -47,7 +44,7 @@ final class CardAddProcess extends Model
 
     protected $hidden = ['encrypted_pan', 'encrypted_confirmer'];
 
-    public static function create(CreateData $data): static
+    final public static function create(CreateData $data): static
     {
         return self::query()->create([
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date, 'phone_number' => $data->phone_number,
@@ -56,12 +53,12 @@ final class CardAddProcess extends Model
         ]);
     }
 
-    public function getPanAttribute(): string
+    final public function getPanAttribute(): string
     {
         return Crypt::decryptString($this->attributes['encrypted_pan']);
     }
 
-    public function getConfirmerAttribute(): string
+    final public function getConfirmerAttribute(): string
     {
         return Crypt::decryptString($this->attributes['encrypted_confirmer']);
     }

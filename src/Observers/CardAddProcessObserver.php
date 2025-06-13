@@ -11,6 +11,6 @@ final class CardAddProcessObserver
 {
     public function creating(CardAddProcess $model): void
     {
-        $model->id = Str::uuid();
+        $model->id = Str::uuid()->toString();
     }
 }
