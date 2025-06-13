@@ -12,4 +12,5 @@ enum P2PStatus: string
     case CONFIRM_LOCAL = 'confirm_local';
     case CONFIRM_PC = 'confirm_pc';
     case CONFIRM_ERROR = 'confirm_error';
+    case UNKNOWN = 'unknown';
 }
