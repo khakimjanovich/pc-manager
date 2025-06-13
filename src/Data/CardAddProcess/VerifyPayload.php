@@ -11,6 +11,6 @@ final class VerifyPayload extends Data
     public function __construct(
         public string $id,
         public int $should_expire_in_minutes,
-        public int $code,
+        public string $code,
     ) {}
 }

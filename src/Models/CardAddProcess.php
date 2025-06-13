@@ -20,7 +20,7 @@ use Khakimjanovich\PCManager\Observers\CardAddProcessObserver;
  * @property string $name
  * @property bool $is_main
  * @property string $local_owner_id
- * @property string $order
+ * @property int $order
  * @property string $confirmer
  * @property Carbon $created_at
  */
@@ -36,6 +36,11 @@ final class CardAddProcess extends Model
     protected $fillable = [
         'encrypted_pan', 'expiry_date', 'phone_number', 'bin', 'name', 'is_main', 'local_owner_id', 'order',
         'encrypted_confirmer',
+    ];
+
+    protected $casts = [
+        'order' => 'int',
+        'is_main' => 'bool',
     ];
 
     protected $appends = ['pan', 'confirmer'];

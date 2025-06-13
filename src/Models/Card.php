@@ -49,6 +49,10 @@ abstract class Card extends Model
 
     protected $hidden = ['encrypted_pan', 'updated_at', 'card_token'];
 
+    protected $casts = [
+        'is_main' => 'boolean',
+    ];
+
     abstract public function getProcessingCentre(): string;
 
     abstract public function getDebitRow(): string;

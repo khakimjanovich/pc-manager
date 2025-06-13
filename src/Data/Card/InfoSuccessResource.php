@@ -9,8 +9,10 @@ use Spatie\LaravelData\Data;
 final class InfoSuccessResource extends Data
 {
     public function __construct(
-        public string $id,
-        public string $balance,
-        public string $state,
-    ) {}
+        public string     $id,
+        public string|int $balance,
+        public string|int $state,
+    )
+    {
+    }
 }
