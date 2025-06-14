@@ -47,9 +47,9 @@ final class CardAddProcess extends Model
 
     protected $hidden = ['encrypted_pan', 'encrypted_confirmer'];
 
-    final public static function create(CreateData $data): CardAddProcess
+    final public static function create(CreateData $data): self
     {
-        return CardAddProcess::query()->create([
+        return self::query()->create([
             'encrypted_pan' => Crypt::encryptString($data->pan), 'expiry_date' => $data->expiry_date, 'phone_number' => $data->phone_number,
             'bin' => $data->bin, 'name' => $data->name, 'is_main' => $data->is_main, 'local_owner_id' => $data->local_owner_id,
             'order' => $data->order, 'encrypted_confirmer' => Crypt::encryptString($data->confirmer),
