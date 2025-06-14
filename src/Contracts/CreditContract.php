@@ -7,7 +7,7 @@ namespace Khakimjanovich\PCManager\Contracts;
 use Khakimjanovich\PCManager\Data\Credit\PerformPayload;
 use Khakimjanovich\PCManager\Data\Credit\PerformResource;
 
-interface CreateContract
+interface CreditContract
 {
     public function perform(PerformPayload $data): PerformResource;
 }
