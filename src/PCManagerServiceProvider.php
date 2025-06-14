@@ -8,6 +8,7 @@ use Khakimjanovich\PCManager\Commands\MigrateCommand;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+
 use function Laravel\Prompts\confirm;
 
 final class PCManagerServiceProvider extends PackageServiceProvider

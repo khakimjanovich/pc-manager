@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use Symfony\Component\Console\Attribute\AsCommand;
+
 use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;
 
@@ -21,14 +22,14 @@ final class MigrateCommand extends Command
 
         $migrationPath = 'vendor/khakimjanovich/pc-manager/database/migrations'; // Update path as needed
 
-        if (!File::isDirectory($migrationPath)) {
+        if (! File::isDirectory($migrationPath)) {
             error("Migration path not found: $migrationPath");
 
             return 1;
         }
 
         $migrationFiles = collect(File::files($migrationPath))
-            ->map(fn($file) => pathinfo($file->getFilename(), PATHINFO_FILENAME));
+            ->map(fn ($file) => pathinfo($file->getFilename(), PATHINFO_FILENAME));
 
         DB::table('migrations')->whereIn('migration', $migrationFiles)->delete();
         info('Deleted migration records from database.');
@@ -43,7 +44,7 @@ final class MigrateCommand extends Command
         foreach ($tables_to_drop as $table) {
             if (Schema::hasTable($table)) {
                 Schema::drop($table);
-                $dropped_tables .= $table . ', ';
+                $dropped_tables .= $table.', ';
             }
         }
         if ($dropped_tables) {
