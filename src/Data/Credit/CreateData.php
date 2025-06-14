@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Khakimjanovich\PCManager\Data\Credit;
 
 use Khakimjanovich\PCManager\Enums\CreditStatus;
-
 use Spatie\LaravelData\Data;
-class CreateData extends Data
+
+final class CreateData extends Data
 {
     public function __construct(
         public int $epos_id,
