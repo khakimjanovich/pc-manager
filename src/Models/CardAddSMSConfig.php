@@ -15,7 +15,7 @@ use Khakimjanovich\PCManager\Scopes\ProcessingCentreScope;
 /**
  * @property int $id
  * @property null|string $ussd
- * @property null|string $template_id
+ * @property null|int $template_id
  * @property string $service_name
  * @property string $hash
  * @property string $processing_centre
