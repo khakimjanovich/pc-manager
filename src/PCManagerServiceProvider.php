@@ -15,11 +15,6 @@ final class PCManagerServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
             ->name('pc-manager')
             ->hasConsoleCommands(
@@ -27,9 +22,9 @@ final class PCManagerServiceProvider extends PackageServiceProvider
             )->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->copyAndRegisterServiceProviderInApp()
-                    ->askToStarRepoOnGitHub('khakimjanovich/svgate-manager')
+                    ->askToStarRepoOnGitHub('khakimjanovich/pc-manager')
                     ->startWith(function (InstallCommand $command) {
-                        if (confirm('Would you like to run the migrations?', true)) {
+                        if (confirm('Would you like to run the migrations?')) {
                             $command->call('pc-manager:migrate');
                         }
                     });
