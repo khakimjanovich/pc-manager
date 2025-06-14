@@ -8,6 +8,7 @@ use Khakimjanovich\PCManager\Commands\MigrateCommand;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use function Laravel\Prompts\confirm;
 
 final class PCManagerServiceProvider extends PackageServiceProvider
 {
@@ -27,7 +28,7 @@ final class PCManagerServiceProvider extends PackageServiceProvider
                     ->copyAndRegisterServiceProviderInApp()
                     ->askToStarRepoOnGitHub('khakimjanovich/svgate-manager')
                     ->startWith(function (InstallCommand $command) {
-                        if ($command->confirm('Would you like to run the migrations?', true)) {
+                        if (confirm('Would you like to run the migrations?', true)) {
                             $command->call('pc-manager:migrate');
                         }
                     });
