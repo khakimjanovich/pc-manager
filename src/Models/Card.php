@@ -58,6 +58,8 @@ abstract class Card extends Model
 
     abstract public function getDebitRow(): string;
 
+    abstract public function bin(): BelongsTo;
+
     final public static function create(CreateData $data): self
     {
         return static::query()->firstOrCreate(['id' => hash('sha256', $data->pan)], [
@@ -73,6 +75,4 @@ abstract class Card extends Model
     {
         return Crypt::decryptString($this->attributes['encrypted_pan']);
     }
-
-    abstract public function bin(): BelongsTo;
 }
