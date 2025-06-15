@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Crypt;
 use Khakimjanovich\PCManager\Data\Card\CreateData;
 use Khakimjanovich\PCManager\Observers\CardObserver;
@@ -72,4 +73,6 @@ abstract class Card extends Model
     {
         return Crypt::decryptString($this->attributes['encrypted_pan']);
     }
+
+    abstract public function bin(): BelongsTo;
 }
